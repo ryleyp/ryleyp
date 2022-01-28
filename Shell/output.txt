@@ -1,0 +1,7 @@
+-rw-r--r-- 1 ryley ryley      0 Oct 13 04:27 output.txt
+-rw-r--r-- 1 ryley ryley  77230 Oct 13 04:26 test.txt
+-rw-r--r-- 1 ryley ryley  77488 Oct 13 04:21 a
+-rw-r--r-- 1 ryley ryley     85 Oct 13 04:22 b
+-rw-rw-r-- 1 ryley ryley   4289 Oct 13 03:56 shell.cpp
+-rwxrwxr-x 1 ryley ryley 204352 Oct 13 04:18 shell.o
+total 364
