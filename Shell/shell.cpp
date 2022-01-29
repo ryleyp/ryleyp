@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include <sstream>
 using namespace std;
-// ~~~~~ from video ~~~~~~
+
 char** vec_to_char_array (vector<string>& parts){
 	char ** result = new char* [parts.size()+1]; //add 1 to nullptr at the end
 	for(int i = 0; i<parts.size(); i++){
@@ -19,7 +19,7 @@ char** vec_to_char_array (vector<string>& parts){
 	return result;
 }
 
-// ~~~~~ from video ~~~~~~
+
 string trim (string input){
    int i = 0;
 	while (i < input.size() && input[i] == ' '){
@@ -70,7 +70,6 @@ int main(){
 	while (true){
 		dup2(in_def, 0);
 		dup2(out_def, 1);
-	// ~~~~~ from video ~~~~~~
 		for (int i=0; i<bgs.size(); i++){ //preemptive check for background processes
 			//waitpid(bgs[i], 0, 0); //blocking wait
 			if (waitpid (bgs[i], 0, WNOHANG) == bgs[i]){
@@ -90,15 +89,9 @@ int main(){
 			break;
 		}
 		
-		// could not get the other functions in CD to work, so right now it just prints the current dir
-		if(inputline[0]=='c'){////
+		// returns current directory
+		if(inputline[0]=='c'){
 			if(inputline[1]=='d'){
-		    	//string cd = trim(split(inputs[i],' ')[1]);
-				//if (cd == "-")
-				//	chdir(oldd.c_str());
-				//else if(cd [0] == '/')
-				//	chdir(cd.c_str());
-				//oldd = curd;
 				curd = getcwd(carray, sizeof(carray));
 				cout << curd << endl;
 				}
@@ -106,23 +99,16 @@ int main(){
 				
 
 				
-		// ~~~~~ from video ~~~~~~
+
 		vector <string> inputs = split(inputline, '|'); /// inputs def
 		for (int i = 0; i < inputs.size(); i++){
 
 			bool bg = false;
-			//string oinputline = inputline;
-			//inputline = trim(inputline);
-			//cout << inputline << endl;
-			
-			//cout << inputs[i] << endl;
-			
+
 				if((inputline)[inputline.size()-1] == '&'){
-					//cout << "Background Process Found" <<endl;
 					bg = true;
 					inputs[i] = inputs[i].substr(0, inputs[i].size()-1);
-					//inputline = trim(inputline);
-					
+				
 					dup2(1,10); ////
 				}
 			
@@ -134,13 +120,10 @@ int main(){
 			if (pid == 0) { // if child process
 				if (i < inputs.size()-1){
         			dup2(fds[1],1);
-        			//close(fds[1]);
         		}
 			
 
 				
-
-          // Start of solo implementation of File I/O Redirection
       		int redirection = inputs[i].find('>');
 			if(redirection >= 0){
 				string arg = trim(inputs[i].substr(0,redirection));
@@ -165,10 +148,7 @@ int main(){
 			char** args = vec_to_char_array(parts);
 			execvp (args [0], args);
 
-		                
-
 			}
-				// ~~~~~ from video ~~~~~~
 		else{ // if parent
 			dup2(fds[0],0);
 		    close(fds[1]);
