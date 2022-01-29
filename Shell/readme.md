@@ -1,4 +1,4 @@
-This shell program operates similarly to a Linux shell and allows for the user to navigate through files. To build this code, enter in 'g++ -g shell.cpp -o  shell.o' into a linux command prompt window that also contains the shell.cpp file. Then, typing in './shell.o' will begin running the code. 
+This shell program operates similarly to a Linux shell and allows for the user to navigate through files. To build this code, enter in 'g++ -g shell.cpp -o  shell.o' into a Linux command prompt window that also contains the shell.cpp file. Then, typing in './shell.o' will begin running the code. 
 
 This function accepts most of the same inputs as a typical linux shell, including:
   - simple command arguments
