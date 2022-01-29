@@ -10,7 +10,6 @@ publickey = []
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 
 # get local machine name
-#host = socket.gethostname()
 host = "localhost"
 print(host)
 
