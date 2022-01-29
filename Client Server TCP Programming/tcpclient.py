@@ -3,13 +3,11 @@
 import socket
 import hashlib
 import finalproject
-#from finalproject import registration
 
 # create a socket object
 clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 
 # get local machine name
-#host = socket.gethostname()
 host = "localhost"
 
 # set destination port
