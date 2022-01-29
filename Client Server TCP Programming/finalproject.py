@@ -31,13 +31,11 @@ def createpublic(private, m, n):
     public = ""
     for element in private:
         privateE = (element * n) % m
-        ###print(privateE)
         publickey.append(privateE)
     for num in publickey:
         number = str(num)
         public = public + number + ','
     public = public[0:-1]
-    ###print(public)
     return public #, publickey
 
 def knapsackEncrypt(text, key):
@@ -47,15 +45,12 @@ def knapsackEncrypt(text, key):
     a = 0
     #key string to array
     keylist = key.split(",")
-    ##print(keylist)
-    ###print (keylist)
+    
     #binary creation
     for letter in text: 
         char = ord(letter)
-        ##print('char ', char)
         ascii = format(char, '08b')
         binary.append(ascii)
-    ##print(binary)
 
     #encryption with public key
     for element in binary:
@@ -67,7 +62,6 @@ def knapsackEncrypt(text, key):
             a = a + 1
             if (a > 7): break
         knapsackEn.append(knapsum)
-    ##print(knapsackEn)
 
     #turning array to string to transport
     knapsackEnStr = ""
@@ -75,16 +69,11 @@ def knapsackEncrypt(text, key):
         number = str(num)
         knapsackEnStr = knapsackEnStr + number + ','
     knapsackEnStr = knapsackEnStr[0:-1]
-    ##print(knapsackEnStr)
     return knapsackEnStr
 
 def knapsackDecrypt(en, key, m, n):
-    ##print('')
-    ##print(key)
     Rkey = key[::-1]
-    ##print(Rkey)
     knapsackdecrypt = ''
-    #print(en)
     binary = []
     binarystring = ""
     enarray = []
@@ -123,19 +112,16 @@ def knapsackDecrypt(en, key, m, n):
         binarystring = ""
         for element in newbinary:
             binarystring = binarystring + str(element)
-        ##print(binarystring)
 
         binaryint = int(binarystring,2)
 
         ##print(binaryint)
         knap = chr(binaryint)
-        ##print(knap)
 
         # create decrypted string
         knapsackdecrypt += knap
         knap = ''
 
-    ##print (knapsackdecrypt)
     return knapsackdecrypt
         
 
